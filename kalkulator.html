@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KALKULUS1</title>
+    <link rel="stylesheet" href="style_kalkulator.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+  </head>
+  <body>
+    <section>
+      <input type="checkbox" id="check" />
+      <header>
+        <h2>
+          <a href="#" class="logo">KALKULUS<span>1</span></a>
+        </h2>
+        <div class="navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="help.html">Help</a>
+          <a href="kalkulator.html">Kalkulator Grafik</a>
+        </div>
+        <label for="check">
+          <i class="fas fa-bars menu-btn"></i>
+          <i class="fas fa-times close-btn"></i>
+        </label>
+      </header>
+      <div class="content">
+        <h2>Kalkulator Fungsi Kuadrat</h2>
+        <h3>Bentuk Umum Fungsi Kuadrat f(x) = ax^2+bx+c</h3>
+
+        <p>Masukan Nilai Koefisien A</p>
+        <label for="a"></label>
+        <input
+          type="number"
+          id="a"
+          placeholder="Masukan Nilai Koefisien"
+          step="any"
+        /><br /><br />
+        <p>Masukan Nilai Koefisien B</p>
+        <label for="b"></label>
+        <input
+          type="number"
+          id="b"
+          placeholder="Masukan Nilai Koefisien"
+          step="any"
+        /><br /><br />
+        <p>Masukan Nilai Koefisien C</p>
+        <label for="c"></label>
+        <input
+          type="number"
+          id="c"
+          placeholder="Masukan Nilai Koefisien"
+          step="any"
+        /><br /><br />
+      <button onclick="hitungFungsiKuadrat()" ,id="klik">Hitung Grafik</button>
+      <button id="menu"><a href="index.html"> Back To Home</a></button>
+      <div id="calculator" style="width: 700px; height: 400px"></div>
+      <script>
+        // Fungsi untuk menghitung dan menampilkan INJMgrafik fungsi kuadrat
+
+        // Inisialisasi kalkulator Desmos
+        var elt = document.getElementById("calculator");
+        var calculator = Desmos.Calculator(elt);
+        var a = 0;
+
+        function hitungFungsiKuadrat() {
+          // Dapatkan nilai a, b, dan c dari input
+          var a = parseFloat(document.getElementById("a").value);
+          var b = parseFloat(document.getElementById("b").value);
+          var c = parseFloat(document.getElementById("c").value);
+
+          // Buat ekspresi kuadrat
+          var expression = `y = ${a}x^2 + ${b}x + ${c}`;
+
+          // Atur ekspresi ke kalkulator Desmos
+          calculator.setExpression({ id: `graph ${a}`, latex: expression });
+          a += 1;
+        }
+      </script>
+    </section>
+  </body>
+</html>
